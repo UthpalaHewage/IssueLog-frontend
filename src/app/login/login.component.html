@@ -1,0 +1,50 @@
+<div class="login-container">
+  <div class="login-container2 ">
+    <div class="wrap-login">
+      <form class="login-form" (submit)="login()" [style.fontSize.px]="13">
+        <span class="login-form-title"> Welcome </span>
+
+        <div class="form-field">
+          <input
+            class="form-control form-control-lg"
+            placeholder=" Enter Email Address"
+            [(ngModel)]="userName"
+            [ngModelOptions]="{ standalone: true }"
+            (input)="EnableLoginButton()"
+          />
+        </div>
+        <div class="form-field">
+          <input
+            class="form-control form-control-lg"
+            type="password"
+            placeholder=" Password"
+            [(ngModel)]="password"
+            [ngModelOptions]="{ standalone: true }"
+            (input)="EnableLoginButton()"
+          />
+        </div>
+
+        <div class="login-buttons">
+          <button
+            style="height: 40px"
+            class="btn btn-primary btn-lg btn-block"
+            type="submit"
+            (click)="login()"
+            [disabled]="!buttonEnableStatus"
+          >
+            Login
+          </button>
+        </div>
+        <div class="error-message">{{ errorMsg }}</div>
+
+        <span style="width:100%;text-align: center"
+          ><a [routerLink]="['/register']">Create an Account!</a></span
+        >
+      </form>
+      <div
+        class="login-image"
+        style="background-image: url('assets/login-image.jpg');"
+      ></div>
+    </div>
+  </div>
+</div>

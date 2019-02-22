@@ -1,0 +1,87 @@
+<app-navbar></app-navbar>
+<div class="w-50 p-2">
+  <div class="card" style="left: 50%" >
+    <div class="card-header text-center">
+     <h5>New Issue</h5>
+    </div>
+    <div class="card-body">
+      
+      <form
+        class="addissue"
+        (ngSubmit)="onSubmit(a)"
+        #a="ngForm"
+        [style.fontSize.px]="20"
+      >
+        <div class="form-group">
+          <label for="issueTitle">Issue title</label>
+          <input 
+          ngModel
+          class="form-control" 
+          name="issuetitle" 
+          id="issuetitle" 
+          type="text"
+          required
+          /> 
+        </div>
+        <div class="form-group">
+          <label for="issueDescription">Issue Description</label>
+          <input 
+          ngModel
+          class="form-control" 
+          name="issuedescription" 
+          id="issuedescription" 
+          type="text"
+          required
+          />
+        </div>
+        <div class="form-group">
+          <label for="criticalLevel">Critical Level</label>
+          <select 
+          class="form-control"
+          ngModel
+          class="form-control" 
+          name="criticallevel" 
+          id="criticallevel"
+          required
+          >
+            <option value="" disabled selected></option>
+            <option value="1">Critical</option>
+            <option value="2">Not Critical</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="deadline">Deadline</label>
+          <input 
+          ngModel
+          class="form-control" 
+          name="deadline" 
+          id="deadline" 
+          type="date"
+          required
+          />
+        </div>
+
+
+      <!-- need to be corrected -->
+        <div class="form-group">
+          <label for="attachFiles">Files attached</label>
+          <textarea 
+          class="form-control" 
+          name="files" 
+          id="files" 
+          rows="3" 
+          >
+        </textarea>
+        </div>
+        <div class="d-flex w-100">
+          <button class="btn pull-right btn-primary" 
+          type="submit"
+          [disabled]="!a.valid"
+          >Add Issue</button>
+        </div>
+        
+      </form>
+
+    </div>
+  </div>
+</div>

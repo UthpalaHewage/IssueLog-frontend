@@ -1,0 +1,102 @@
+<div class="login-container">
+  <div class="login-container2 ">
+    <div class="wrap-login">
+      <form
+        class="login-form"
+        (ngSubmit)="onSubmit(f)"
+        #f="ngForm"
+        [style.fontSize.px]="13"
+      >
+        <span class="login-form-title"> Create an Account! </span>
+        <!-- first name -->
+        <div class="form-field">
+          <input
+            ngModel
+            class="form-control form-control-lg"
+            placeholder=" First Name"
+            name="fname"
+            id="fname"
+            required
+          />
+        </div>
+        <!-- last name -->
+        <div class="form-field">
+          <input
+            ngModel
+            class="form-control form-control-lg"
+            placeholder=" Last Name"
+            name="lName"
+            id="lName"
+            required
+          />
+        </div>
+        <!-- email -->
+        <div class="form-field">
+          <input
+            ngModel
+            name="email"
+            id="email"
+            class="form-control form-control-lg"
+            placeholder=" Email"
+            required
+            email
+            #email="ngModel"
+          />
+        </div>
+        <span
+          style="width: 100%;text-align: center;color: red"
+          *ngIf="!email.valid && email.touched"
+          >Please enter a valid email address</span
+        >
+
+        <select
+          class="form-control"
+          ngModel
+          class="form-control"
+          name="userTypeId"
+          id="userTypeId"
+          required
+        >
+          <option value="" disabled selected>Select your Role</option>
+          <option value="1">Project Manager</option>
+          <option value="2">Project Leader</option>
+          <option value="3">Client</option>
+        </select>
+
+        <div class="form-field">
+          <input
+            ngModel
+            class="form-control form-control-lg"
+            type="password"
+            id="password"
+            name="password"
+            placeholder=" Password"
+            required
+          />
+        </div>
+
+        <div class="login-buttons">
+          <button
+            style="height: 40px"
+            class="btn btn-primary btn-lg btn-block"
+            type="submit"
+            [disabled]="!f.valid"
+          >
+            Register Account
+          </button>
+        </div>
+
+        <span style="width:100%;text-align: center"
+          >All ready Registered -
+          <a [routerLink]="['']">Go To Login</a></span
+        >
+
+        <div class="error-message">{{ errorMsg }}</div>
+      </form>
+      <div
+        class="login-image"
+        style="background-image: url('assets/register-image.png');"
+      ></div>
+    </div>
+  </div>
+</div>

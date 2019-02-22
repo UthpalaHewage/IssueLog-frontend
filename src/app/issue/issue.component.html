@@ -1,0 +1,37 @@
+<app-navbar></app-navbar>
+<div class="container" style="margin-top:10px ">
+  <span style="width: 100% !important;">
+    <h3>Issue Info</h3>
+  </span>
+  <hr />
+
+  <!-- <div class="card">
+    <div class="card-header  bg-secondary  text-white">Project Name</div>
+    <div class="card-body">{{ issueInfo.projectName }}</div>
+  </div>
+  <p></p>
+  <div class="card">
+    <div class="card-header  bg-secondary  text-white">Issue</div>
+    <div class="card-body">{{ issueInfo.title }}</div>
+  </div>
+  <p></p> -->
+  <div class="card">
+    <div class="card-header  bg-secondary  text-white">Issue Description</div>
+    <div class="card-body">{{ issueInfo.description }}</div>
+  </div>
+  <p></p>
+  <div class="card">
+    <div class="card-header bg-secondary  text-white">Critical Level</div>
+    <div class="card-body">{{ issueInfo.criticalLevel }}</div>
+  </div>
+  <p></p>
+  <div class="card">
+    <div class="card-header bg-secondary  text-white">Deadline to Fix</div>
+    <div class="card-body">{{ issueInfo.deadLine | date: "fullDate" }}</div>
+  </div>
+  <p></p>
+  <div class="card">
+    <div class="card-header bg-secondary  text-white">File Uploaded</div>
+    <div class="card-body"></div>
+  </div>
+</div>

@@ -1,0 +1,7 @@
+.table-data:hover {
+  cursor: pointer;
+  color: #d1d1d1;
+}
+.table-data:active {
+  transform: translateY(2px);
+}

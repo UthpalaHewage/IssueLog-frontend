@@ -1,0 +1,7 @@
+.card-header:hover {
+  cursor: pointer;
+  color: #d1d1d1 !important;
+}
+.card-header:active {
+  transform: translateY(2px);
+}
