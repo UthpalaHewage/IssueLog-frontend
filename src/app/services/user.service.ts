@@ -23,4 +23,9 @@ export class UserService {
         })
       );
   }
+
+  //to get list of roles
+  getUserRoles() {
+    return this.http.get(environment.baseUrl + "/api/UserTypes");
+  }
 }

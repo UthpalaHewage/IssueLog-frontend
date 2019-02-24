@@ -3,6 +3,7 @@ import { Router } from "@angular/router";
 import { NgForm } from "@angular/forms";
 import { UserService } from "../services/user.service";
 import userDetails from "../shared/Models/userDetails";
+import userTypes from "../shared/Models/userTypes";
 
 @Component({
   selector: "app-register",
@@ -13,6 +14,7 @@ export class RegisterComponent implements OnInit {
   errorMsg = "";
   submitted = false;
   userD: userDetails;
+  userRoles: Array<userTypes>;
   user = {
     fname: "",
     lName: "",
@@ -25,11 +27,15 @@ export class RegisterComponent implements OnInit {
 
   constructor(private router: Router, private userServices: UserService) {}
 
-  ngOnInit() {}
-
-  // login() {
-  //   this.router.navigate([""]);
-  // }
+  ngOnInit() {
+    // this.userServices.getUserRoles()
+    // console.log(this.userServices.getUserRoles);
+    this.userServices.getUserRoles().subscribe(data => {
+      this.userRoles = <userTypes[]>data;
+      console.log(this.userRoles);
+      console.log(this.userRoles.length);
+    });
+  }
 
   onSubmit() {
     this.submitted = true;
@@ -40,7 +46,7 @@ export class RegisterComponent implements OnInit {
     this.user.userTypeId = this.registerForm.value.userTypeId;
     this.user.password = this.registerForm.value.password;
 
-    // console.log(JSON.stringify(this.user));
+    console.log(this.user);
 
     this.userServices.registerNewUser(this.user).subscribe(
       data => {

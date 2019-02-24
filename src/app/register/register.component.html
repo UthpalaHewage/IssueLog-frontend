@@ -58,9 +58,11 @@
           required
         >
           <option value="" disabled selected>Select your Role</option>
-          <option value="1">Project Manager</option>
-          <option value="2">Project Leader</option>
-          <option value="3">Client</option>
+          <option *ngFor="let userRole of userRoles" [value]="userRole.id">{{
+            userRole.typeName
+          }}</option>
+          <!-- <option value="2">Project Leader</option>
+          <option value="3">Client</option> -->
         </select>
 
         <div class="form-field">
@@ -87,8 +89,7 @@
         </div>
 
         <span style="width:100%;text-align: center"
-          >All ready Registered -
-          <a [routerLink]="['']">Go To Login</a></span
+          >All ready Registered - <a [routerLink]="['']">Go To Login</a></span
         >
 
         <div class="error-message">{{ errorMsg }}</div>
