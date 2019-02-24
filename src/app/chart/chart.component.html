@@ -1,0 +1,15 @@
+<div *ngIf="showChart; else no_issues">
+  <canvas
+    baseChart
+    [data]="[criticalCount, notCriticalCount]"
+    [labels]="pieChartLabels"
+    [chartType]="pieChartType"
+    (chartHover)="chartHovered($event)"
+    (chartClick)="chartClicked($event)"
+    [colors]="pieChartColor"
+    height="100%"
+  ></canvas>
+</div>
+<ng-template #no_issues>
+  <h1>No Issues</h1>
+</ng-template>

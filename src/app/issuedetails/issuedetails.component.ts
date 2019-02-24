@@ -44,7 +44,8 @@ export class IssuedetailsComponent implements OnInit {
     this.router.navigate(["/project/addissue",this.projectId]);
   }
 
-
-
+  chart(){
+    this.router.navigate(["/project/chart",this.projectId]);
+  }
 
 }

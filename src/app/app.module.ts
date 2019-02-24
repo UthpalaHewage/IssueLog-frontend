@@ -12,6 +12,8 @@ import { RegisterComponent } from './register/register.component';
 import { AddissueComponent } from './addissue/addissue.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { AddprojectComponent } from './addproject/addproject.component';
+import { ChartComponent } from './chart/chart.component';
+import { ChartsModule } from 'ng2-charts';
 
 @NgModule({
   declarations: [
@@ -23,13 +25,15 @@ import { AddprojectComponent } from './addproject/addproject.component';
     RegisterComponent,
     AddissueComponent,
     NavbarComponent,
-    AddprojectComponent
+    AddprojectComponent,
+    ChartComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    ChartsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -37,4 +37,40 @@ export class IssueService{
             })
           );
       }     
+
+      //chart generation
+      // addChart(projectId: string){
+      //   const headers = new HttpHeaders().set("Content-Type", "application/json");
+      //   return this.http.get(
+      //     environment.baseUrl + "/api/issue/projectissues/" + projectId,{
+      //       headers
+      //     }
+          
+      //   })
+        
+      // );
+      // }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+        
+
 }
