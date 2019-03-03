@@ -49,8 +49,9 @@ export class ChartComponent implements OnInit {
 
   // colors
   public pieChartColor: Array<any> = [
-    { backgroundColor: ["#008000","#FF0000"] },
+    { backgroundColor: ["#008000", "#FF0000"] },
     { borderColor: ["#AEEBF2", "#FEFFC9"] }
+    //colors changed
   ];
 
   // events
