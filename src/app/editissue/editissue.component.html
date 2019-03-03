@@ -3,7 +3,7 @@
   <div class="card" style="left: 50%">
     <ul class="navbar-nav"></ul>
     <div class="card-header text-center">
-      <h5>New Issue</h5>
+      <h5>Edit Issue</h5>
     </div>
     <div class="card-body">
       <form
@@ -15,7 +15,7 @@
         <div class="form-group">
           <label for="issueTitle">Issue title</label>
           <input
-            ngModel
+            [(ngModel)]="issueInfo.title"
             class="form-control"
             name="issuetitle"
             id="issuetitle"
@@ -26,7 +26,7 @@
         <div class="form-group">
           <label for="issueDescription">Issue Description</label>
           <input
-            ngModel
+            [(ngModel)]="issueInfo.description"
             class="form-control"
             name="issuedescription"
             id="issuedescription"
@@ -38,21 +38,20 @@
           <label for="criticalLevel">Critical Level</label>
           <select
             class="form-control"
-            ngModel
+            [ngModel]="selectedCriticalLevel"
             class="form-control"
             name="criticallevel"
             id="criticallevel"
             required
           >
-            <option value="" disabled selected></option>
             <option value="1">Critical</option>
-            <option value="2">Not Critical</option>
+            <option value="0">Not Critical</option>
           </select>
         </div>
         <div class="form-group">
           <label for="deadline">Deadline</label>
           <input
-            ngModel
+            [ngModel]="issueInfo.deadLine | date: 'yyyy-MM-dd'"
             class="form-control"
             name="deadline"
             id="deadline"
@@ -66,17 +65,18 @@
           <label for="status">Status</label>
           <select
             class="form-control"
-            ngModel
+            [ngModel]="selectedStatus"
             class="form-control"
             name="status"
             id="status"
             required
           >
-            <option value="" disabled selected></option>
-            <option value="0">To be completed</option>
             <option value="1">Completed</option>
+            <option value="0">To be completed</option>
           </select>
         </div>
+
+        <p style="color: red">{{ error }}</p>
 
         <div class="d-flex w-100">
           <button
@@ -84,7 +84,11 @@
             type="submit"
             [disabled]="!a.valid"
           >
-            Add Issue
+            Update Issue
+          </button>
+          &nbsp;
+          <button class="btn pull-right btn-primary" (click)="toGetCancel()">
+            Cancel
           </button>
         </div>
       </form>

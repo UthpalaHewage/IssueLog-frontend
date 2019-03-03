@@ -26,15 +26,11 @@ export class AuthServices {
         map(res => {
           if (res.id) {
             localStorage.setItem("userId", JSON.stringify(res.id));
-            localStorage.setItem(
-              "userName",
-              JSON.stringify(res.fname + res.lName)
-            );
-            localStorage.setItem("userTypeId", JSON.stringify(res.userTypeId));
-            localStorage.setItem(
-              "userTypeName",
-              JSON.stringify(res.userType.typeName)
-            );
+            localStorage.setItem("userName", JSON.stringify(res.name));
+            localStorage.setItem("userTypeId", JSON.stringify(res.roleId));
+            localStorage.setItem("roleName", JSON.stringify(res.roleName));
+            localStorage.setItem("email", JSON.stringify(res.email));
+            console.log(res);
             this.loggedIn = true;
             return res;
           }

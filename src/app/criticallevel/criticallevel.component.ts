@@ -5,16 +5,16 @@ import { IssueService } from "../services/issue.service";
 import issueData from "../shared/Models/issueData";
 
 @Component({
-  selector: "app-chart",
-  templateUrl: "./chart.component.html",
-  styleUrls: ["./chart.component.css"]
+  selector: "app-criticallevel",
+  templateUrl: "./criticallevel.component.html",
+  styleUrls: ["./criticallevel.component.css"]
 })
-export class ChartComponent implements OnInit {
+export class CriticallevelComponent implements OnInit {
   projectId: string = "";
   issueData: Array<issueData>;
 
-  completedCount: number = 0;
-  toBeCompletedCount: number = 0;
+  criticalCount: number = 0;
+  notCriticalCount: number = 0;
   showChart: boolean = false;
 
   constructor(
@@ -32,10 +32,10 @@ export class ChartComponent implements OnInit {
         this.issueData = <issueData[]>data;
 
         for (var issue of this.issueData) {
-          if (issue.status == "Completed") {
-            this.completedCount++;
+          if (issue.criticalLevel == "Critical") {
+            this.criticalCount++;
           } else {
-            this.toBeCompletedCount++;
+            this.notCriticalCount++;
           }
         }
         this.showChart = true;
@@ -44,12 +44,12 @@ export class ChartComponent implements OnInit {
   }
 
   // Pie
-  public pieChartLabels: string[] = ["Completed", "To be completed"];
+  public pieChartLabels: string[] = ["Critical", "Not Critical"];
   public pieChartType: string = "pie";
 
   // colors
   public pieChartColor: Array<any> = [
-    { backgroundColor: ["#008000","#FF0000"] },
+    { backgroundColor: ["#FF0000", "#008000"] },
     { borderColor: ["#AEEBF2", "#FEFFC9"] }
   ];
 

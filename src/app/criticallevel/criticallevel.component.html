@@ -1,13 +1,12 @@
-<app-navbar></app-navbar>
 <div *ngIf="showChart; else no_issues">
   <br />
   <br />
-  <h3>Degree of achievement</h3>
+  <h3>Critical Level Representation</h3>
   <br />
   <br />
   <canvas
     baseChart
-    [data]="[completedCount, toBeCompletedCount]"
+    [data]="[criticalCount, notCriticalCount]"
     [labels]="pieChartLabels"
     [chartType]="pieChartType"
     (chartHover)="chartHovered($event)"
@@ -19,6 +18,3 @@
 <ng-template #no_issues>
   <h1>No Issues</h1>
 </ng-template>
-<br />
-<br />
-<app-criticallevel></app-criticallevel>

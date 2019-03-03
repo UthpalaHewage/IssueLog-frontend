@@ -6,5 +6,6 @@ export default class issueData{
     deadLine:Date;
     projectId:number;
     projectName:string;
+    status:string;
 
 }

@@ -1,11 +1,10 @@
 <app-navbar></app-navbar>
 <div class="w-50 p-2">
-  <div class="card" style="left: 50%" >
+  <div class="card" style="left: 50%">
     <div class="card-header text-center">
-     <h5>New Project</h5>
+      <h5>New Project</h5>
     </div>
     <div class="card-body">
-      
       <form
         class="addproject"
         (ngSubmit)="onSubmit(p)"
@@ -14,122 +13,88 @@
       >
         <div class="form-group">
           <label for="projectName">Project Name</label>
-          <input 
-          ngModel
-          class="form-control" 
-          name="projectname" 
-          id="projectname" 
-          type="text"
-          required
-          /> 
+          <input
+            ngModel
+            class="form-control"
+            name="projectname"
+            id="projectname"
+            type="text"
+            required
+          />
         </div>
         <div class="form-group">
           <label for="projectDescription">Project Description</label>
-          <input 
-          ngModel
-          class="form-control" 
-          name="projectdescription" 
-          id="projectdescription" 
-          type="text"
-          required
+          <input
+            ngModel
+            class="form-control"
+            name="projectdescription"
+            id="projectdescription"
+            type="text"
+            required
           />
         </div>
 
         <div class="form-group">
           <label for="clientName">Client name</label>
-          <select 
-          class="form-control"
-          ngModel
-          class="form-control" 
-          name="client" 
-          id="client"
-          required
+          <select
+            class="form-control"
+            ngModel
+            class="form-control"
+            name="client"
+            id="client"
+            required
           >
             <option value="" disabled selected></option>
-            <option value="4">Nimeshika</option>
-            <option value="5">Danushka</option>
-            <option value="13">Dinuka</option>
+            <option *ngFor="let user of usersCl" [value]="user.id">{{
+              user.name.toString()
+            }}</option>
           </select>
         </div>
         <div class="form-group">
           <label for="projectManager">Project Manager</label>
-          <select 
-          class="form-control"
-          ngModel
-          class="form-control" 
-          name="projectmanager" 
-          id="projectmanager"
-          required
+          <select
+            class="form-control"
+            ngModel
+            class="form-control"
+            name="projectmanager"
+            id="projectmanager"
+            required
           >
             <option value="" disabled selected></option>
-            <option value="1">Uthpala</option>
-            <option value="2">Wathsala</option>
-            <option value="8">Praveen</option>
+            <option *ngFor="let user of usersPM" [value]="user.id">{{
+              user.name.toString()
+            }}</option>
           </select>
         </div>
         <div class="form-group">
           <label for="projectLeader">Project Leader</label>
-          <select 
-          class="form-control"
-          ngModel
-          class="form-control" 
-          name="projectleader" 
-          id="projectleader"
-          required
+          <select
+            class="form-control"
+            ngModel
+            class="form-control"
+            name="projectleader"
+            id="projectleader"
+            required
           >
             <option value="" disabled selected></option>
-            <option value="3">Sandeera</option>
-            <option value="6">Natasha</option>
+            <option *ngFor="let user of usersPL" [value]="user.id">{{
+              user.name.toString()
+            }}</option>
           </select>
         </div>
-
 
         <!-- need to be corrected -->
-        <!-- <div class="form-group">
-          <label for="Client">Client Name</label>
-          <input 
-          ngModel
-          class="form-control" 
-          name="client" 
-          id="client" 
-          type="text"
-          required
-          />
-        </div>
-        <div class="form-group">
-          <label for="projectManager">Project Manager</label>
-          <input 
-          ngModel
-          class="form-control" 
-          name="projectmanager" 
-          id="projectmanager" 
-          type="text"
-          required
-          />
-        </div>
-        <div class="form-group">
-          <label for="projectLeader">Project Leader</label>
-          <input 
-          ngModel
-          class="form-control" 
-          name="projectleader" 
-          id="projectleader" 
-          type="text"
-          required
-          />
-        </div> -->
-
-
 
         <div class="d-flex w-100">
-          <button class="btn pull-right btn-primary" 
-          type="submit"
-          [disabled]="!p.valid"
-          >Add Project</button>
+          <button
+            class="btn pull-right btn-primary"
+            type="submit"
+            [disabled]="!p.valid"
+          >
+            Add Project
+          </button>
         </div>
-        
       </form>
-
     </div>
   </div>
 </div>

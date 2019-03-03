@@ -1,45 +1,54 @@
-<!-- <div *ngFor="let issue of issueData">
-  {{issue.title}}
-</div> -->
 <app-navbar></app-navbar>
 <div class="container" style="margin-top:10px ">
-    <span style="width: 100% !important;">
-        <h3>{{projectTitle}}
-          <!-- add click event --> 
-          <!-- navigate - project/addissue/projectid -->
-         
-        <button  style="float: right;margin-top: 5px" class="btn btn-primary btn-sm" (click)="addissue()">Add Issue</button>
-        <button  style="float: right;margin-top: 5px;margin-right: 5px" class="btn btn-primary btn-sm" (click)="chart()">Report</button></h3>
-   
-        <!-- <button  style="float: right;margin-top: 5px" class="btn btn-primary btn-sm" [routerLink]="['/addissue']">Add Issue</button></h3> -->
-      </span>
-  <hr>
+  <span style="width: 100% !important;">
+    <h3>
+      {{ projectTitle }}
+
+      <button
+        style="float: right;margin-top: 5px"
+        class="btn btn-primary btn-sm"
+        (click)="addissue()"
+        [disabled]="!activeProjectButton"
+      >
+        Add Issue
+      </button>
+      <button
+        style="float: right;margin-top: 5px;margin-right: 5px"
+        class="btn btn-primary btn-sm"
+        (click)="chart()"
+      >
+        Report
+      </button>
+    </h3>
+  </span>
+  <hr />
   <div>
-      <div class="card">
-          <div class="card-header text-primary">
-            List of Issues
-          </div>
-          <div class="card-body">
-              <table class="table">
-                  <thead class="thead-light">
-                      <tr class="d-flex">
-                          <th class="col-2">Issue No</th>
-                          <th class="col-6">Issue</th>
-                          <th class="col-4">Critical Level</th>
-                      </tr>
-                  </thead>
-                  <tbody>
-                   
-                        <tr class="table-data d-flex" *ngFor="let issue of issueData;let idx = index" (click)="goToIssue(issue.id)" >
-                            <td class="col-sm-2">{{idx+1}}</td>
-                            <td class="col-sm-6">{{issue.title}}</td>
-                            <td class="col-sm-4">{{issue.criticalLevel}}</td>
-                        </tr>
-                    
-                      
-                  </tbody>
-                </table>
-          </div>
-        </div>
+    <div class="card">
+      <div class="card-header text-primary">
+        List of Issues
+      </div>
+      <div class="card-body">
+        <table class="table">
+          <thead class="thead-light">
+            <tr class="d-flex">
+              <th class="col-2">Issue No</th>
+              <th class="col-6">Issue</th>
+              <th class="col-4">Critical Level</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr
+              class="table-data d-flex"
+              *ngFor="let issue of issueData; let idx = index"
+              (click)="goToIssue(issue.id)"
+            >
+              <td class="col-sm-2">{{ idx + 1 }}</td>
+              <td class="col-sm-6">{{ issue.title }}</td>
+              <td class="col-sm-4">{{ issue.criticalLevel }}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
   </div>
 </div>

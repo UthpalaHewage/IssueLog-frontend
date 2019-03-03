@@ -6,71 +6,42 @@ import { map } from "rxjs/internal/operators/map";
 @Injectable({
   providedIn: "root"
 })
+export class IssueService {
+  constructor(private http: HttpClient) {}
 
-export class IssueService{
-    constructor(private http: HttpClient){}
+  getProjectIssueList(projectId: string) {
+    return this.http.get(
+      environment.baseUrl + "/api/issue/projectissues/" + projectId
+    );
+  }
 
-    getProjectIssueList(projectId: string) {
-        return this.http.get(
-            environment.baseUrl + "/api/issue/projectissues/" + projectId
-        );
-      }
+  getIssueById(issueId: string) {
+    return this.http.get(environment.baseUrl + "/api/issue/" + issueId);
+  }
 
-     
-      getIssueById(issueId:string){
-        return this.http.get(
-            environment.baseUrl + "/api/issue/" + issueId
-        );
-      }
+  //newly added
+  addNewIssue(newIssue: object) {
+    const headers = new HttpHeaders().set("Content-Type", "application/json");
+    return this.http
+      .post<any>(environment.baseUrl + "/api/Issue", newIssue, {
+        headers
+      })
+      .pipe(
+        map(res => {
+          console.log(res);
+          return res;
+        })
+      );
+  }
 
-      //newly added
-      addNewIssue(newIssue: object){
-        const headers = new HttpHeaders().set("Content-Type", "application/json");
-        return this.http
-          .post<any>(environment.baseUrl + "/api/Issue", newIssue, {
-            headers
-          })
-          .pipe(
-            map(res => {
-              console.log(res);
-              return res;
-            })
-          );
-      }     
-
-      //chart generation
-      // addChart(projectId: string){
-      //   const headers = new HttpHeaders().set("Content-Type", "application/json");
-      //   return this.http.get(
-      //     environment.baseUrl + "/api/issue/projectissues/" + projectId,{
-      //       headers
-      //     }
-          
-      //   })
-        
-      // );
-      // }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    
-        
-
+  updateIssue(issueId: number, editedUser: object) {
+    return this.http
+      .put<any>(environment.baseUrl + "/api/issue/" + issueId, editedUser)
+      .pipe(
+        map(res => {
+          console.log(res);
+          return res;
+        })
+      );
+  }
 }

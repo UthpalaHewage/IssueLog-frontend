@@ -1,54 +1,34 @@
-<!--<nav class="navbar navbar-light bg-white mb-4 shadow">-->
-  <!--&lt;!&ndash; Navbar content &ndash;&gt;-->
-
-  <!--<ul class="navbar-nav">-->
-    <!--<li class="nav-item">-->
-      <!--<a class="nav-link" href="#">Home</a>-->
-    <!--</li>-->
-    <!--<li class="nav-item">-->
-      <!--<a class="nav-link" href="#">Home</a>-->
-    <!--</li>-->
-  <!--</ul>-->
-<!--</nav>-->
 <nav class="navbar navbar-expand-lg navbar-light bg-white mb-4 shadow">
   <a class="navbar-brand">
-    <img src="assets/logo.jpg" width="100" height="50" alt="">
+    <img src="assets/logo.jpg" width="100" height="50" alt="" />
   </a>
-  <div class="collapse navbar-collapse align-content-end" id="navbarNavDropdown">
+  <div
+    class="collapse navbar-collapse align-content-end"
+    id="navbarNavDropdown"
+  >
     <ul class="navbar-nav">
       <li class="nav-item">
-        <button  style="right:120px;top: 20px;position: absolute" class="btn btn-primary btn-sm" (click)="home()">Home</button>
-        <!-- <a class="nav-link" [routerLink]="['/project']" style="right:120px;top: 20px;position: absolute">Home</a> -->
+        <button
+          style="right:120px;top: 20px;position: absolute"
+          class="btn btn-primary btn-sm"
+          (click)="home()"
+        >
+          Home
+        </button>
       </li>
     </ul>
 
     <ul class="navbar-nav">
-        <li class="nav-item">
-            <button  style="right:30px;top: 20px;position: absolute" class="btn btn-primary btn-sm" (click)="logout()">Logout</button>
-          <!-- <a class="nav-link" [routerLink]="['']" style="right:30px;top: 20px;position: absolute">Logout</a> -->
-        </li>
-        <!-- <button class = "btn" style="float: left">Logout</button> -->
-      </ul>
-
-
-    <!-- Profile link -->
-    <!-- <ul class="navbar-nav ml-auto">
-      <li class="nav-item img-profile">
-        <img class="img-profile img-thumbnail" src="assets/profile.jpg" width="40" height="40"/>
+      <li class="nav-item">
+        <button
+          style="right:30px;top: 20px;position: absolute"
+          class="btn btn-primary btn-sm"
+          (click)="logout()"
+        >
+          Logout
+        </button>
       </li>
-      <li class="nav-item dropdown">
-
-        <a class="nav-link dropdown-toggle"  id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          {{ user.name }}
-        </a>
-        
-        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-          <a class="dropdown-item">Profile</a>
-          <a class="dropdown-item" data-toggle="modal" data-target="#logoutModal">Logout</a>
-        </div>
-      </li>
-    </ul> -->
-
+    </ul>
   </div>
 </nav>
 <router-outlet></router-outlet>
@@ -56,22 +36,3 @@
 <a class="scroll-to-top rounded" href="#page-top">
   <i class="fas fa-angle-up"></i>
 </a>
-
-<!-- Logout Modal-->
-<!-- <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
-        <button class="close" type="button" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">×</span>
-        </button>
-      </div>
-      <div class="modal-body">Are you sure you want to Logout?</div>
-      <div class="modal-footer">
-        <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-        <button class="btn btn-primary" data-dismiss="modal" routerLink="/login" routerLinkActive="active">Logout</button>
-      </div>
-    </div>
-  </div>
-</div> -->

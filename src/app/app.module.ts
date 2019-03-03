@@ -14,6 +14,8 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { AddprojectComponent } from './addproject/addproject.component';
 import { ChartComponent } from './chart/chart.component';
 import { ChartsModule } from 'ng2-charts';
+import { EditissueComponent } from './editissue/editissue.component';
+import { CriticallevelComponent } from './criticallevel/criticallevel.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +28,9 @@ import { ChartsModule } from 'ng2-charts';
     AddissueComponent,
     NavbarComponent,
     AddprojectComponent,
-    ChartComponent
+    ChartComponent,
+    EditissueComponent,
+    CriticallevelComponent
   ],
   imports: [
     BrowserModule,

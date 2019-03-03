@@ -28,8 +28,6 @@ export class RegisterComponent implements OnInit {
   constructor(private router: Router, private userServices: UserService) {}
 
   ngOnInit() {
-    // this.userServices.getUserRoles()
-    // console.log(this.userServices.getUserRoles);
     this.userServices.getUserRoles().subscribe(data => {
       this.userRoles = <userTypes[]>data;
       console.log(this.userRoles);
@@ -50,7 +48,7 @@ export class RegisterComponent implements OnInit {
 
     this.userServices.registerNewUser(this.user).subscribe(
       data => {
-        if (data.id) {
+        if (data) {
           console.log(data);
           this.registerForm.reset();
           this.router.navigate([""]);
@@ -61,6 +59,5 @@ export class RegisterComponent implements OnInit {
         this.registerForm.reset();
       }
     );
-    // this.registerForm.reset();
   }
 }
